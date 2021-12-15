@@ -1,6 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
+//App.js is the center of the application (root compornent)//
 
+import React from 'react';
+import Nav from './components/Nav';
+import About from './components/About';
+/*
 function App() {
   return (
     <div className="App">
@@ -18,6 +21,18 @@ function App() {
           Learn React
         </a>
       </header>
+    </div>
+  );
+}
+*/
+
+function App() {
+  return (
+    <div>
+      <Nav />
+      <main>
+        <About />
+      </main>
     </div>
   );
 }
