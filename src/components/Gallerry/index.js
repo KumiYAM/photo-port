@@ -12,4 +12,3 @@ function Gallery(props) {
     </section>
   );
 }
-export default Gallery;

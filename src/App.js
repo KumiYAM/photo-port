@@ -1,45 +1,9 @@
-//App.js is the center of the application (root compornent)//
-
 import React, { useState } from 'react';
 import Nav from './components/Nav';
 import About from './components/About';
 import Gallery from './components/Gallery';
-/*
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-====
+import ContactForm from './components/Contact';
 
-function App() {
-
-  return (
-    <div>
-      <Nav/>
-      <main>
-        <Gallery/>
-        <About/>
-      </main>
-    </div>
-  );
-}
-*/
 function App() {
   const [categories] = useState([
     {
@@ -53,18 +17,30 @@ function App() {
 
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
 
+  const [contactSelected, setContactSelected] = useState(false);
+
   return (
     <div>
       <Nav
         categories={categories}
         setCurrentCategory={setCurrentCategory}
         currentCategory={currentCategory}
+        contactSelected={contactSelected}
+        setContactSelected={setContactSelected}
       ></Nav>
       <main>
-        <Gallery currentCategory={currentCategory}></Gallery>
-        <About></About>
+        {!contactSelected ? (
+          <>
+            <Gallery currentCategory={currentCategory}></Gallery>
+            <About></About>
+          </>
+        ) : (
+          <ContactForm></ContactForm>
+        )}
       </main>
     </div>
   );
 }
+
 export default App;
+
